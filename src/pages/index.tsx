@@ -1,5 +1,4 @@
 import Header from '../components/header'
-import Footer from '../components/footer'
 import { motion } from 'framer-motion'
 import sharedStyles from '../styles/shared.module.css'
 
@@ -107,7 +106,6 @@ export default function Index() {
           </p>
         </motion.div>
       </motion.div>
-      <Footer />
     </>
   )
 }
