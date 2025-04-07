@@ -32,3 +32,4 @@ yarn-error.log*
 .qodo
 .env
 
+public/atom

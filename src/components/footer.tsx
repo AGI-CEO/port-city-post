@@ -31,24 +31,21 @@ export default function Footer() {
     <motion.footer
       className={styles.footer}
       initial="hidden"
-      whileInView="visible"
+      animate="visible"
       variants={containerVariants}
-      viewport={{ once: true }}
     >
       <motion.div className={styles.content}>
         <motion.h3
           initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          viewport={{ once: true }}
         >
           Ready to Transform Your Business?
         </motion.h3>
         <motion.p
           initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          viewport={{ once: true }}
         >
           Whether you need a stunning website, effective marketing strategies,
           or streamlined administration, we've got you covered. Take your

@@ -58,8 +58,7 @@ export default function Index() {
           className="features-grid"
           variants={containerVariants}
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
+          animate="visible"
         >
           <motion.div className="feature-item" variants={itemVariants}>
             <h3>Local Events & Culture</h3>
@@ -94,9 +93,8 @@ export default function Index() {
         <motion.div
           className="cta-section"
           initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
-          viewport={{ once: true, margin: '-50px' }}
         >
           <h3>Join Your Community</h3>
           <p>
