@@ -1,36 +1,72 @@
 import ExtLink from './ext-link'
+import { motion } from 'framer-motion'
+import styles from '../styles/footer.module.css'
 
 export default function Footer() {
+  const containerVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: 'easeOut',
+      },
+    },
+  }
+
+  const buttonVariants = {
+    rest: { scale: 1 },
+    hover: {
+      scale: 1.05,
+      transition: {
+        duration: 0.2,
+        ease: 'easeInOut',
+      },
+    },
+    tap: { scale: 0.95 },
+  }
+
   return (
-    <>
-      <footer className="cta-section" style={{ marginTop: '4rem' }}>
-        <h3>Ready to Transform Your Business?</h3>
-        <p style={{ fontSize: '1.1rem', margin: '1rem 0' }}>
+    <motion.footer
+      className={styles.footer}
+      initial="hidden"
+      whileInView="visible"
+      variants={containerVariants}
+      viewport={{ once: true }}
+    >
+      <motion.div className={styles.content}>
+        <motion.h3
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          viewport={{ once: true }}
+        >
+          Ready to Transform Your Business?
+        </motion.h3>
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          viewport={{ once: true }}
+        >
           Whether you need a stunning website, effective marketing strategies,
           or streamlined administration, we've got you covered. Take your
           business to the next level with professional solutions tailored to
           your needs.
-        </p>
+        </motion.p>
         <ExtLink href="https://virtualzenassistants.com">
-          <button
-            style={{
-              background: '#2c5282',
-              color: 'white',
-              padding: '0.8rem 1.5rem',
-              borderRadius: '6px',
-              border: 'none',
-              fontSize: '1.1rem',
-              cursor: 'pointer',
-              transition: 'background 0.3s ease',
-              marginTop: '1rem',
-            }}
-            onMouseOver={(e) => (e.currentTarget.style.background = '#1a365d')}
-            onMouseOut={(e) => (e.currentTarget.style.background = '#2c5282')}
+          <motion.button
+            className={styles.button}
+            variants={buttonVariants}
+            initial="rest"
+            whileHover="hover"
+            whileTap="tap"
           >
             Get Started Today
-          </button>
+          </motion.button>
         </ExtLink>
-      </footer>
-    </>
+      </motion.div>
+    </motion.footer>
   )
 }

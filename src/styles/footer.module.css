@@ -1,0 +1,75 @@
+.footer {
+  margin-top: 6rem;
+  padding: 4rem 2rem;
+  background: linear-gradient(
+    135deg,
+    var(--accent-light) 0%,
+    var(--primary-light) 100%
+  );
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+}
+
+.content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.content h3 {
+  color: var(--neutral-700);
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.content p {
+  color: var(--neutral-600);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 1.5rem 0 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.button {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: var(--radius);
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-smooth);
+}
+
+.button:hover {
+  box-shadow: var(--shadow);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
+}
+
+@media (max-width: 600px) {
+  .footer {
+    margin-top: 4rem;
+    padding: 3rem 1.5rem;
+  }
+
+  .content h3 {
+    font-size: 1.75rem;
+  }
+
+  .content p {
+    font-size: 1rem;
+    margin: 1rem 0 1.5rem;
+  }
+
+  .button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+}

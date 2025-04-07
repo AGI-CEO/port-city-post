@@ -1,33 +1,84 @@
 .header {
   display: block;
-  min-height: 64px;
+  min-height: 70px;
   padding: 2em 0;
   text-align: center;
   letter-spacing: -0.02em;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.95),
+    rgba(255, 255, 255, 0.85)
+  );
+  backdrop-filter: blur(8px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow-sm);
 }
 
 .header ul {
   list-style: none;
   padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
 }
 
 .header ul li {
   display: inline-block;
-  padding: 0 10px;
+  position: relative;
 }
 
 .header :global(a) {
-  color: var(--accents-3);
-  font-weight: 400;
+  color: var(--neutral-600);
+  font-weight: 500;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: color var(--transition-base);
+  padding: 0.5rem 0;
+}
+
+.header :global(a:hover) {
+  color: var(--primary);
 }
 
 .header :global(a.active) {
-  color: #0070f3;
+  color: var(--primary);
   font-weight: 600;
+}
+
+.header :global(a.active::after) {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+  transform-origin: left;
+  animation: slideIn 0.3s ease-out forwards;
+}
+
+@keyframes slideIn {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
 }
 
 @media (max-width: 600px) {
   .header {
-    padding: .5em 0 2em;
+    padding: 1em 0;
+  }
+
+  .header ul {
+    gap: 1rem;
+  }
+
+  .header :global(a) {
+    font-size: 1rem;
   }
 }
