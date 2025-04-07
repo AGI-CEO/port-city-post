@@ -1,5 +1,6 @@
 import Header from '../components/header'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import sharedStyles from '../styles/shared.module.css'
 
 export default function Index() {
@@ -38,6 +39,19 @@ export default function Index() {
         <motion.h1 className="title" variants={itemVariants}>
           Port City Post
         </motion.h1>
+        <motion.div
+          className="logo-container"
+          style={{ margin: '2rem auto', textAlign: 'center' }}
+          variants={itemVariants}
+        >
+          <Image
+            src="/logo.png"
+            alt="Port City Post Logo"
+            width={400}
+            height={200}
+            priority
+          />
+        </motion.div>
         <motion.h2 className="subtitle" variants={itemVariants}>
           Wilmington's Essential Local Newsletter
         </motion.h2>

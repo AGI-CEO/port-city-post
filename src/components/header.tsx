@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Head from 'next/head'
+import Image from 'next/image'
 import ExtLink from './ext-link'
 import { useRouter } from 'next/router'
 import { motion } from 'framer-motion'
@@ -57,34 +58,49 @@ const Header = ({ titlePre = '' }) => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content={ogImageUrl} />
       </Head>
-      <motion.ul variants={containerVariants}>
-        {navItems.map(({ label, page, link }) => (
-          <motion.li
-            key={label}
-            variants={itemVariants}
-            whileHover={{ scale: 1.05 }}
-          >
-            {page ? (
-              <Link href={page}>
-                <motion.a
-                  className={pathname === page ? 'active' : undefined}
-                  whileHover={{ color: 'var(--accent)' }}
+      <div className={styles.headerContent}>
+        <Link href="/">
+          <a>
+            <motion.div variants={itemVariants}>
+              <Image
+                src="/logo_icon.png"
+                alt="Port City Post Icon"
+                width={40}
+                height={40}
+                priority
+              />
+            </motion.div>
+          </a>
+        </Link>
+        <motion.ul variants={containerVariants}>
+          {navItems.map(({ label, page, link }) => (
+            <motion.li
+              key={label}
+              variants={itemVariants}
+              whileHover={{ scale: 1.05 }}
+            >
+              {page ? (
+                <Link href={page}>
+                  <motion.a
+                    className={pathname === page ? 'active' : undefined}
+                    whileHover={{ color: 'var(--accent)' }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    {label}
+                  </motion.a>
+                </Link>
+              ) : (
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  {label}
-                </motion.a>
-              </Link>
-            ) : (
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <ExtLink href={link}>{label}</ExtLink>
-              </motion.div>
-            )}
-          </motion.li>
-        ))}
-      </motion.ul>
+                  <ExtLink href={link}>{label}</ExtLink>
+                </motion.div>
+              )}
+            </motion.li>
+          ))}
+        </motion.ul>
+      </div>
     </motion.header>
   )
 }
