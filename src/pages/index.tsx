@@ -47,9 +47,10 @@ export default function Index() {
           <Image
             src="/logo.png"
             alt="Port City Post Logo"
-            width={400}
-            height={200}
+            width={300}
+            height={300}
             priority
+            className="logo-image"
           />
         </motion.div>
         <motion.h2 className="subtitle" variants={itemVariants}>
