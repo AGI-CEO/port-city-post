@@ -1,3 +1,5 @@
+import React from 'react'
+import { Analytics } from '@vercel/analytics/react'
 import '../styles/global.css'
 import 'katex/dist/katex.css'
 import '@fontsource/inter/400.css'
@@ -11,6 +13,7 @@ export default function MyApp({ Component, pageProps }) {
     <>
       <Component {...pageProps} />
       <Footer />
+      <Analytics />
     </>
   )
 }
