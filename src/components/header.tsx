@@ -8,7 +8,7 @@ import styles from '../styles/header.module.css'
 
 const navItems: { label: string; page?: string; link?: string }[] = [
   { label: 'Home', page: '/' },
-  { label: 'Blog', page: '/blog' },
+  { label: 'Newsletter', page: '/blog' },
   { label: 'Contact', link: 'http://bio.blaisep.com' },
 ]
 
